@@ -10,7 +10,11 @@ import pytz
 from django.core.exceptions import ValidationError as DjangoValidationError
 from django.http import QueryDict
 from django.test import TestCase, override_settings
-from django.utils import six
+try:
+    from django.utils import six
+except ImportError:
+    import six
+
 from django.utils.timezone import activate, deactivate, override, utc
 
 import rest_framework

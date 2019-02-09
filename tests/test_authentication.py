@@ -11,7 +11,11 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.http import HttpResponse
 from django.test import TestCase, override_settings
-from django.utils import six
+try:
+    from django.utils import six
+except ImportError:
+    import six
+
 
 from rest_framework import (
     HTTP_HEADER_ENCODING, exceptions, permissions, renderers, status

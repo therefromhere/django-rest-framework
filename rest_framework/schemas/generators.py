@@ -11,7 +11,11 @@ from django.conf import settings
 from django.contrib.admindocs.views import simplify_regex
 from django.core.exceptions import PermissionDenied
 from django.http import Http404
-from django.utils import six
+try:
+    from django.utils import six
+except ImportError:
+    import six
+
 
 from rest_framework import exceptions
 from rest_framework.compat import (

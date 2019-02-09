@@ -11,9 +11,14 @@ from collections import OrderedDict, namedtuple
 from django.core.paginator import InvalidPage
 from django.core.paginator import Paginator as DjangoPaginator
 from django.template import loader
-from django.utils import six
+try:
+    from django.utils import six
+    from django.utils.six.moves.urllib import parse as urlparse
+except ImportError:
+    import six
+    from six.moves.urllib import parse as urlparse
+
 from django.utils.encoding import force_text
-from django.utils.six.moves.urllib import parse as urlparse
 from django.utils.translation import ugettext_lazy as _
 
 from rest_framework.compat import coreapi, coreschema

@@ -24,7 +24,11 @@ from importlib import import_module
 
 from django.conf import settings
 from django.test.signals import setting_changed
-from django.utils import six
+try:
+    from django.utils import six
+except ImportError:
+    import six
+
 
 from rest_framework import ISO_8601
 

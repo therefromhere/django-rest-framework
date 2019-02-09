@@ -1,5 +1,8 @@
 from django.utils.encoding import force_str
-from django.utils.six.moves.urllib import parse as urlparse
+try:
+    from django.utils.six.moves.urllib import parse as urlparse
+except ImportError:
+    from six.moves.urllib import parse as urlparse
 
 
 def replace_query_param(url, key, val):

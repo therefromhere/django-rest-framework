@@ -20,7 +20,11 @@ from django.core.validators import (
 )
 from django.db import models
 from django.test import TestCase
-from django.utils import six
+try:
+    from django.utils import six
+except ImportError:
+    import six
+
 
 from rest_framework import serializers
 from rest_framework.compat import postgres_fields, unicode_repr

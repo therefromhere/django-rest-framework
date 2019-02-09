@@ -2,7 +2,11 @@
 from __future__ import unicode_literals
 
 from django.test import RequestFactory, TestCase
-from django.utils import six, translation
+try:
+    from django.utils import six
+except ImportError:
+    import six
+from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 
 from rest_framework.exceptions import (

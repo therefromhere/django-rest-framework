@@ -5,7 +5,11 @@ from django.db import models
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.test import TestCase
-from django.utils import six
+try:
+    from django.utils import six
+except ImportError:
+    import six
+
 
 from rest_framework import generics, renderers, serializers, status
 from rest_framework.response import Response

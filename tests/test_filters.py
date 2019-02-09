@@ -7,7 +7,10 @@ from django.core.exceptions import ImproperlyConfigured
 from django.db import models
 from django.test import TestCase
 from django.test.utils import override_settings
-from django.utils.six.moves import reload_module
+try:
+    from django.utils.six.moves import reload_module
+except ImportError:
+    from six.moves import reload_module
 
 from rest_framework import filters, generics, serializers
 from rest_framework.compat import coreschema

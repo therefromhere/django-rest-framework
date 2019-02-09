@@ -12,7 +12,11 @@ import types
 import warnings
 
 from django.forms.utils import pretty_name
-from django.utils import six
+try:
+    from django.utils import six
+except ImportError:
+    import six
+
 
 from rest_framework.views import APIView
 

@@ -11,7 +11,10 @@ from weakref import WeakKeyDictionary
 
 from django.db import models
 from django.utils.encoding import force_text, smart_text
-from django.utils.six.moves.urllib import parse as urlparse
+try:
+    from django.utils.six.moves.urllib import parse as urlparse
+except ImportError:
+    from six.moves.urllib import parse as urlparse
 from django.utils.translation import ugettext_lazy as _
 
 from rest_framework import exceptions, serializers

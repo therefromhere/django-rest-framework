@@ -8,7 +8,10 @@ import binascii
 
 from django.contrib.auth import authenticate, get_user_model
 from django.middleware.csrf import CsrfViewMiddleware
-from django.utils.six import text_type
+try:
+    from django.utils.six import text_type
+except ImportError:
+    from six import text_type
 from django.utils.translation import ugettext_lazy as _
 
 from rest_framework import HTTP_HEADER_ENCODING, exceptions

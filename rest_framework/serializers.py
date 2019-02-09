@@ -23,7 +23,11 @@ from django.db import models
 from django.db.models import DurationField as ModelDurationField
 from django.db.models.fields import Field as DjangoModelField
 from django.db.models.fields import FieldDoesNotExist
-from django.utils import six, timezone
+try:
+    from django.utils import six
+except ImportError:
+    import six
+from django.utils import timezone
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 

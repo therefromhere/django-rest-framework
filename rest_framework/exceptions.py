@@ -9,7 +9,11 @@ from __future__ import unicode_literals
 import math
 
 from django.http import JsonResponse
-from django.utils import six
+try:
+    from django.utils import six
+except ImportError:
+    import six
+
 from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext

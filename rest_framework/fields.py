@@ -18,7 +18,11 @@ from django.core.validators import (
 )
 from django.forms import FilePathField as DjangoFilePathField
 from django.forms import ImageField as DjangoImageField
-from django.utils import six, timezone
+try:
+    from django.utils import six
+except ImportError:
+    import six
+from django.utils import timezone
 from django.utils.dateparse import (
     parse_date, parse_datetime, parse_duration, parse_time
 )

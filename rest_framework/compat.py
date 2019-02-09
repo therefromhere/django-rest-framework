@@ -7,7 +7,11 @@ from __future__ import unicode_literals
 
 from django.conf import settings
 from django.core import validators
-from django.utils import six
+try:
+    from django.utils import six
+except ImportError:
+    import six
+
 from django.views.generic import View
 
 try:

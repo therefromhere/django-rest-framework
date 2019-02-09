@@ -15,9 +15,14 @@ from django.http.multipartparser import ChunkIter
 from django.http.multipartparser import \
     MultiPartParser as DjangoMultiPartParser
 from django.http.multipartparser import MultiPartParserError, parse_header
-from django.utils import six
+try:
+    from django.utils import six
+    from django.utils.six.moves.urllib import parse as urlparse
+except ImportError:
+    import six
+    from six.moves.urllib import parse as urlparse
+
 from django.utils.encoding import force_text
-from django.utils.six.moves.urllib import parse as urlparse
 
 from rest_framework import renderers
 from rest_framework.exceptions import ParseError

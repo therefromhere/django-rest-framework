@@ -22,7 +22,11 @@ from collections import OrderedDict, namedtuple
 from django.conf.urls import url
 from django.core.exceptions import ImproperlyConfigured
 from django.urls import NoReverseMatch
-from django.utils import six
+try:
+    from django.utils import six
+except ImportError:
+    import six
+
 from django.utils.deprecation import RenameMethodsBase
 
 from rest_framework import views

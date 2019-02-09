@@ -19,9 +19,14 @@ from django.http.multipartparser import parse_header
 from django.template import engines, loader
 from django.test.client import encode_multipart
 from django.urls import NoReverseMatch
-from django.utils import six
+try:
+    from django.utils import six
+    from django.utils.six.moves.urllib import parse as urlparse
+except ImportError:
+    import six
+    from six.moves.urllib import parse as urlparse
+
 from django.utils.html import mark_safe
-from django.utils.six.moves.urllib import parse as urlparse
 
 from rest_framework import VERSION, exceptions, serializers, status
 from rest_framework.compat import (
